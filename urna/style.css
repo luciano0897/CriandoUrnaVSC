@@ -116,17 +116,26 @@ font-family: Arial, Helvetica, sans-serif;
   
 }
 .d-1-esquerda{
-    width: 90px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 .d-1-image{
-    border: 1px;
+    border: 1px solid #000;
     background-color: #fff;
     text-align: center;
+    font-size: 14px;
     
 }
-.d-1-image{
+.d-1-image img{
     width: 100%;
 }
+.d-1-image.small{
+    width: 70%;
+    font-size: 12px;
+}
+
 .d-2{
 height: 50px;
 font-size: 14px;
