@@ -29,10 +29,34 @@ function comecarEtapas(){
     lateral.innerHTML = '';
     numeros.innerHTML = numeroHtml;
 }
-function atualiaInterface(){
-    alert("finalizou de digita o voto!");
+function atualizaInterface(){
+    let etapa = etapas[etapaAtual];
+    let candidato = etapa.candidatos.filter((item)=>{
+        if(item.numero === numero){
+            return true;
+        }else{
+            return false;
+        }
+    });
+   if (candidato.length > 0) {
+        candidato = candidato[0];
+        seuVotoPara.style.display = 'block';
+        aviso.style.display = 'block';
+        descrição.innerHTML =  `Nome: ${candidato.nome}<br/>Partido: ${candidato.partido}`
 
-}
+        let fotosHtml = '';
+        for(let i in candidato.fotos) {
+            fotosHtml += `<div class="d-1-image"><img src="img.projetosVSC/${candidato.fotos[i].url}" alt="">${candidato.fotos[i].legenda}`
+        }
+            lateral.innerHTML = fotosHtml
+        }else{
+            seuVotoPara.style.display = 'block';
+            aviso.style.display = 'block';
+            descrição.innerHTML = '<div class ="aviso--grande pisca">VOTO NULO</div>';
+        }
+    
+
+    }
 // esta função buscar o espaço que esta piscando para adionar um numero 
 // este nextElementSibling puxar o elemento que esta do lado 
 function clicou(n){
@@ -42,13 +66,14 @@ function clicou(n){
         numero = `${numero}${n}`;
 
         elNumero.classList.remove('pisca');
-        if(elNumero.nextElementSibling !== null)
+        if(elNumero.nextElementSibling !== null){ 
         elNumero.nextElementSibling.classList.add('pisca');  
     }else{
-        atualiaInterface();
+        atualizaInterface();
 
     }
    
+}
 }
 function branco(){
     alert("Clicou branco");
