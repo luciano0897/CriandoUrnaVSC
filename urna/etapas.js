@@ -44,7 +44,7 @@ let etapas = [
                 vice: 'Zup',
                 fotos:[
                     {url: 'velhoHomem.png', legenda: 'Prefeito'},
-                    {url: 'velhaHomem.png', legenda: 'Vice-Prefeito', small:true}
+                    {url: 'fotoluciano.png', legenda: 'Vice-Prefeito', small:true}
                 ] 
             }
         ]
